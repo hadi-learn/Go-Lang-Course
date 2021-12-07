@@ -26,4 +26,18 @@ func main() {
 
 	g := 10 % 3
 	fmt.Println(g)
+
+	var i int8 = 10
+	i += 3
+	fmt.Println(i)
+	i *= 2
+	fmt.Println(i)
+
+	// unary operator
+
+	i++
+	fmt.Println(i)
+	i--
+	fmt.Println(i)
+
 }

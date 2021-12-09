@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var months = [...]string{
+	var months = [...]string{ // the use of [...] indicate array with undecided size
 		"Januari",   //0
 		"Februari",  //1
 		"Maret",     //2
@@ -52,18 +52,43 @@ func main() {
 	fmt.Println(cap(months))
 
 	// make slice
-	newSlice := make([]string, 2, 5)
+	newSlice := make([]string, 2, 5) // the use of [] indicate slice with undecided size
 	newSlice[0] = "Syukri"
 	newSlice[1] = "Hadi"
 	fmt.Println(newSlice)
 
-	newSlice2 := make([]string, 1, 5)
+	newSlice2 := make([]string, 4, 5)
+	// adding data one at a time to newSlice then changing it's data won't affect the array's origin
 	newSlice2[0] = months[2]
-	//newSlice2[1] = months[3]
-	//newSlice2[2] = months[4]
+	newSlice2[1] = months[3]
+	newSlice2[2] = months[4]
 	fmt.Println(newSlice2)
 	newSlice2[0] = "Ganti"
 	fmt.Println(newSlice2)
 	fmt.Println(months)
+
+	// adding data with slice syntax to newSlice then changing it's data will affect the array's origin
+	newSlice3 := make([]string, 4, 5)
+	newSlice3 = months[5:8]
+	fmt.Println(newSlice3)
+	newSlice3[0] = "Ganti"
+	fmt.Println(newSlice3)
+	fmt.Println(months)
+
+	// copy slice (make sure the size is the same)
+	copy_slice := make([]string, len(newSlice), cap(newSlice))
+	copy(copy_slice, newSlice)
+	fmt.Println(copy_slice)
+	fmt.Println(newSlice)
+
+	// different between array and slice
+	iniArray := [5]int8{1, 2, 3, 4, 5}
+	iniArray2 := [9]int8{1, 2, 3, 4, 5, 6}
+	iniArray3 := [...]int8{1, 2, 3, 4, 5, 6, 7, 8}
+	iniSlice := []int8{1, 2, 3, 4, 5}
+	fmt.Println(iniArray)
+	fmt.Println(iniArray2)
+	fmt.Println(iniArray3)
+	fmt.Println(iniSlice)
 
 }

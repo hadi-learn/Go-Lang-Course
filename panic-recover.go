@@ -13,7 +13,7 @@ func endApp() {
 func runApp(errorVariable bool) {
 	defer endApp()
 	if errorVariable {
-		panic("Aplikasi ERROR") // catch panic of errorVar value is true and send it to recover function which located at the UPPER CODE LINE FROM ERROR PRONE which is on defer function
+		panic("Aplikasi ERROR") // catch panic of errorVar value, if it is true then send it to recover function which located at the UPPER CODE LINE FROM ERROR PRONE which is on defer function
 	}
 	fmt.Println("Aplikasi berjalan")
 }

@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func random() interface{} {
-	return "OK"
+	return true
 }
 
 func main() {
@@ -20,6 +20,9 @@ func main() {
 		fmt.Print("value ", value, " is ")
 		fmt.Printf("%T\n", value)
 	case int:
+		fmt.Print("value ", value, " is ")
+		fmt.Printf("%T\n", value)
+	case bool:
 		fmt.Print("value ", value, " is ")
 		fmt.Printf("%T\n", value)
 	default:

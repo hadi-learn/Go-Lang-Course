@@ -6,6 +6,14 @@ type Address struct {
 	City, Province, Country string
 }
 
+func ChangeCityToBandung(address Address) {
+	address.City = "Bandung"
+}
+
+func ChangeCityToJakarta(address *Address) {
+	address.City = "Jakarta"
+}
+
 func main() {
 	address1 := Address{"Yogyakarta", "D.I. Yogyakarta", "Indonesia"}
 	address2 := address1 // pass by value or deep copy
@@ -53,4 +61,19 @@ func main() {
 	fmt.Println(address8)
 	address8.City = "Yogyakarta"
 	fmt.Println(address8)
+
+	var alamat = Address{
+		City:     "Yogyakarta",
+		Province: "D.I. Yogyakarta",
+		Country:  "Indonesia",
+	}
+	fmt.Println(alamat)
+	ChangeCityToBandung(alamat) // this should change the city to "Bandung" but it's not because parameter alamat passed by it's value not by reference
+	fmt.Println(alamat)
+	ChangeCityToJakarta(&alamat) // this will change the city to "Jakarta" on variable alamat
+	fmt.Println(alamat)
+
+	var alamatPointer *Address = &alamat
+	ChangeCityToBandung(*alamatPointer)
+	fmt.Println(alamatPointer)
 }
